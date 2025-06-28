@@ -1,12 +1,7 @@
 import { ModalProps } from "@/interfaces/IModal";
 import { ReactNode } from "react";
 import { createPortal } from "react-dom";
-import {
-  AiOutlineInfoCircle,
-  AiOutlineCheckCircle,
-  AiOutlineWarning,
-  AiOutlineCloseCircle,
-} from "react-icons/ai";
+import { AiOutlineInfoCircle, AiOutlineCheckCircle, AiOutlineWarning, AiOutlineCloseCircle } from "react-icons/ai";
 
 const iconMap: Record<string, ReactNode> = {
   information: <AiOutlineInfoCircle className="text-blue-500 w-6 h-6" />,
@@ -28,20 +23,13 @@ export default function Modal({ message, type = "information", onOk, onCancel }:
 
         <div className="mt-6 flex justify-end gap-3">
           {onCancel && (
-            <button
-              onClick={onCancel}
-              className="px-4 py-2 rounded-md border text-gray-600 hover:bg-gray-100"
-            >
+            <button onClick={onCancel} className="px-4 py-2 rounded-md border text-gray-600 hover:bg-gray-100">
               Cancel
             </button>
           )}
-          <button
-            onClick={onOk || (() => {})} 
-            className="px-4 py-2 rounded-md bg-indigo-600 text-white hover:bg-indigo-700"
-          >
+          <button onClick={onOk || (() => {})} className="px-4 py-2 rounded-md bg-indigo-600 text-white hover:bg-indigo-700">
             OK
           </button>
-
         </div>
       </div>
     </div>,
