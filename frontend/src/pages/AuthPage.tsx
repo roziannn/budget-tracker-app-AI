@@ -43,16 +43,15 @@ const AuthPage = () => {
           setErrors({ terms: "You must agree with terms & privacy" });
           return;
         }
+        response = await register({
+          ...formData,
+          number: `+62${formData.number}`,
+        });
       }
-
-      response = await register({
-        ...formData,
-        number: `+62${formData.number}`,
-      });
 
       const token = response.data.token;
       localStorage.setItem("token", token);
-      // router.push("/dashboard");
+      router.push("/dashboard");
     } catch (error) {
       if (error instanceof Error) {
         setErrors({ general: error.message });

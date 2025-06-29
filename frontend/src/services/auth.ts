@@ -22,7 +22,7 @@ export const register = async (userDataRegister: RegisterData) => {
 
 export const profile = async (token: string) => {
   try {
-    const response = await api.post("/profile", {
+    const response = await api.get("/auth/profile", {
       headers: { Authorization: `Bearer ${token}` },
     });
     return response.data;
